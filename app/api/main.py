@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from fastapi import FastAPI
-from app.api.handlers import docs, webhooks
+from app.api.handlers import docs, webhooks, warehous
 import uvicorn
 from fastapi.openapi.utils import get_openapi
 from fastapi.middleware.cors import CORSMiddleware
@@ -168,6 +168,7 @@ def get_application() -> FastAPI:
     # Подключаем все роутеры
     application.include_router(docs.router)
     application.include_router(webhooks.router)
+    application.include_router(warehous.router)
 
     return application
 
