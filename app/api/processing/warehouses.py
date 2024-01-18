@@ -6,8 +6,8 @@ def get_warehouses() -> dict:
         warehouses.id AS warehouses_id,
         warehouses.title,
         warehouses.user_id,
-        warehouses.integration_id,
-        warehouses.status_id
+        warehouse_statuses.title as status_title,
+        integrations.title as integration_title
         FROM public.warehouses
         LEFT JOIN public.warehouse_statuses ON warehouses.status_id = warehouse_statuses.id
         LEFT JOIN public.integrations ON warehouses.integration_id = integrations.id

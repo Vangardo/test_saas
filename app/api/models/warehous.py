@@ -13,21 +13,12 @@ status_title_description = "Onluhib status title"
 integration_title_description = "Onluhib integration title"
 
 
-class StatusResponse(BaseModel):
-    title: str = Field(..., description=status_title_description)
-
-
-class IntegrationResponse(BaseModel):
-    title: str = Field(..., description=integration_title_description)
-
-
 class WarehouseResponse(BaseModel):
     warehouse_id: PositiveInt = Field(..., description=warehouse_id_description)
     warehouse_title: str = Field(..., description=warehouse_title_description)
     user_id: PositiveInt = Field(..., description=warehouse_user_id_description)
-    integration_id: PositiveInt = Field(..., description=warehouse_integration_id_description)
-    status: StatusResponse
-    integration: IntegrationResponse
+    status_title: str = Field(..., description=status_title_description)
+    integration_title: str = Field(..., description=integration_title_description)
 
 
 class Warehouses(BaseModel):
@@ -38,10 +29,8 @@ response_example_warehouse = WarehouseResponse(
     warehouse_id=111222,
     warehouse_title="Warehouse title",
     user_id=1,
-    integration_id = 1,
-    status_id=1,
-    status = {"title": "Status"},
-    integration = {"title": "Integration"}
+    status_title = "Status",
+    integration_title = "Integration"
 )
 
 
